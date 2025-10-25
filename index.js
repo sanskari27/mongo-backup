@@ -8,7 +8,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
-const date = new Date().toLocaleDateString().replace(/\//g, '-');
+const date = new Date().toISOString().split('T')[0];
 
 
 
