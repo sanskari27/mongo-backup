@@ -44,6 +44,11 @@ console.log("Process Started");
             prefix: 'backups/',
             delimiter: '/'
         }).then((data) => {
+            data[0].sort((a, b) => {
+                const dateA = new Date(a.name.split('/')[1].split('.')[0]);
+                const dateB = new Date(b.name.split('/')[1].split('.')[0]);
+                return dateB.getTime() - dateA.getTime();
+            });
             return data[0].pop();
         });
 
